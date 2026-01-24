@@ -30,6 +30,10 @@ The focus was making the website look just as nice and be just as user-friendly 
 
 As it does in Mobile view.
 
+## Deployment
+
+[Link to deployed webpage](https://ezriiizee-star.github.io/se_project_spots/)
+
 ## Pitch Video
 
 Check out [this video](https://www.loom.com/share/752191f4f9d2420a8113f8ccd975fa3b) where I describe my project and some challenges I faced while building it.
