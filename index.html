@@ -116,6 +116,60 @@
       <footer class="footer">
         <p class="footer__copyright">2025 © Spots</p>
       </footer>
+      <div class="modal">
+        <div class="modal__container">
+          <h2 class="modal__title">Edit profile</h2>
+          <button type="button" class="modal__close-button"></button>
+          <form class="modal__form">
+            <label for="input-profile-name" class="modal__label"
+              >Name
+              <input
+                type="text"
+                class="modal__input"
+                id="input-profile-name"
+                placeholder="Type your name"
+              />
+            </label>
+            <label for="input-profile-description" class="modal__label"
+              >Description
+              <input
+                type="text"
+                class="modal__input"
+                id="input-profile-description"
+                placeholder="Describe yourself"
+              />
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="modal__container">
+          <h2 class="modal__title">New post</h2>
+          <button type="button" class="modal__close-button"></button>
+          <form class="modal__form">
+            <label for="input-image-link" class="modal__label"
+              >Image link
+              <input
+                type="text"
+                class="modal__input"
+                id="input-image-link"
+                placeholder="Paste a link to the picture"
+              />
+            </label>
+            <label for="input-image-caption" class="modal__label"
+              >Caption
+              <input
+                type="text"
+                class="modal__input"
+                id="input-image-caption"
+                placeholder="Type your caption"
+              />
+            </label>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
