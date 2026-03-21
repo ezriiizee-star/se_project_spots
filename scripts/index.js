@@ -77,7 +77,7 @@ function handleProfileFormSubmit(evt) {
   profileNameElement.textContent = profileNameInput.value;
   profileDescriptionElement.textContent = profileDescriptionInput.value;
 
-  profileModal.classList.remove("modal_is-opened");
+  closeModal(profileModal);
 }
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
@@ -88,7 +88,7 @@ function handleAddCardSubmit(evt) {
   console.log(postCaptionInput.value);
   console.log(postLinkInput.value);
 
-  postModal.classList.remove("modal_is-opened");
+  closeModal(postModal);
 }
 
 postFormElement.addEventListener("submit", handleAddCardSubmit);
