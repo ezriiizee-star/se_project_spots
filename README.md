@@ -10,11 +10,13 @@ Spots is a photo-sharing website where users can:
 
 - **HTML**
 - **CSS**
+- **JavaScript**
 - **Responsive Design**
 
 This is my first project created without a .pdf brief.
 All of the coding was written from scratch using a Figma design.
 It is also my first project employing responsive design, which really excited me.
+It is also my first project using JavaScript, which was a lot to learn, but fascinating to execute.
 
 ## Figma
 

@@ -33,83 +33,43 @@
             <div class="profile__column">
               <h1 class="profile__name">Bessie Coleman</h1>
               <p class="profile__description">Civil Aviator</p>
-              <button type="button" class="profile__edit-button">
+              <button
+                aria-label="Edit profile"
+                type="button"
+                class="profile__edit-button"
+              >
                 <img src="./images/pencil.svg" alt="Pencil Icon" />Edit Profile
               </button>
             </div>
           </div>
-          <button type="button" class="profile__add-button">
+          <button
+            aria-label="New post"
+            type="button"
+            class="profile__add-button"
+          >
             <img src="./images/plus.svg" alt="Add Icon" />New Post
           </button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-            <li class="card">
-              <img
-                src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Val Thorens by Moritz Feldmann"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Val Thorens</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="Restaurant terrace by Ceiline"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Restaurant terrace</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="An outdoor cafe by Tubanur Dogan"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">An outdoor cafe</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="A very long bridge, over the forest by Maurice Laschet"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">A very long bridge, over the forest</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="Tunnel with morning light by Van Anh Nguyen"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Tunnel with morning light</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="Mountain house by Moritz Feldmann"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__title">Mountain house</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
+            <template id="card-template">
+              <li class="card">
+                <button
+                  aria-label="Delete card"
+                  type="button"
+                  class="card__delete-button"
+                ></button>
+                <img class="card__image" src="#" alt="" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button
+                    aria-label="Like card"
+                    type="button"
+                    class="card__like-button"
+                  ></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
@@ -119,7 +79,11 @@
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <h2 class="modal__title">Edit profile</h2>
-          <button type="button" class="modal__close-button"></button>
+          <button
+            aria-label="Close modal"
+            type="button"
+            class="modal__close-button"
+          ></button>
           <form class="modal__form">
             <label for="input-profile-name" class="modal__label"
               >Name
@@ -139,14 +103,24 @@
                 placeholder="Describe yourself"
               />
             </label>
-            <button type="submit" class="modal__submit-button">Save</button>
+            <button
+              aria-label="Save"
+              type="submit"
+              class="modal__submit-button"
+            >
+              Save
+            </button>
           </form>
         </div>
       </div>
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <h2 class="modal__title">New post</h2>
-          <button type="button" class="modal__close-button"></button>
+          <button
+            aria-label="Close"
+            type="button"
+            class="modal__close-button"
+          ></button>
           <form class="modal__form">
             <label for="input-image-link" class="modal__label"
               >Image link
@@ -166,8 +140,26 @@
                 placeholder="Type your caption"
               />
             </label>
-            <button type="submit" class="modal__submit-button">Save</button>
+            <button
+              aria-label="Save"
+              type="submit"
+              class="modal__submit-button"
+            >
+              Save
+            </button>
           </form>
+        </div>
+      </div>
+
+      <div class="modal" id="preview-modal">
+        <div class="modal__preview-container">
+          <button
+            aria-label="Close"
+            type="button"
+            class="modal__close-button modal__close-button_type_preview"
+          ></button>
+          <img src="#" alt="" class="modal__preview-image" />
+          <p class="modal__preview-title"></p>
         </div>
       </div>
     </div>
