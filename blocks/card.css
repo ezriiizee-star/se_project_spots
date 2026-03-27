@@ -30,6 +30,15 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.card__image:hover {
+  opacity: 0.95;
+  transform: scale(1.02);
 }
 
 .card__content {

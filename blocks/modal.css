@@ -94,7 +94,6 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
-  align-items: center;
   border: none;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
@@ -102,7 +101,6 @@
 
 .modal__submit-button:hover {
   opacity: 0.8;
-  cursor: pointer;
 }
 
 .modal_is-opened {
@@ -179,7 +177,6 @@
   .modal__submit-button {
     width: 100%;
     max-width: none;
-    justify-content: center;
   }
 
   .modal__preview-image {
