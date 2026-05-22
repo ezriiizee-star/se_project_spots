@@ -54,12 +54,12 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
+                <img class="card__image" src="#" alt="" />
                 <button
                   aria-label="Delete card"
                   type="button"
                   class="card__delete-button"
                 ></button>
-                <img class="card__image" src="#" alt="" />
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button
@@ -84,7 +84,7 @@
             type="button"
             class="modal__close-button"
           ></button>
-          <form class="modal__form">
+          <form class="modal__form" novalidate>
             <label for="input-profile-name" class="modal__label"
               >Name
               <input
@@ -92,8 +92,11 @@
                 class="modal__input"
                 id="input-profile-name"
                 placeholder="Type your name"
+                minlength="2"
+                maxlength="40"
                 required
               />
+              <span class="modal__error" id="input-profile-name-error"></span>
             </label>
             <label for="input-profile-description" class="modal__label"
               >Description
@@ -102,8 +105,14 @@
                 class="modal__input"
                 id="input-profile-description"
                 placeholder="Describe yourself"
+                minlength="2"
+                maxlength="200"
                 required
               />
+              <span
+                class="modal__error"
+                id="input-profile-description-error"
+              ></span>
             </label>
             <button
               aria-label="Save"
@@ -123,16 +132,17 @@
             type="button"
             class="modal__close-button"
           ></button>
-          <form class="modal__form">
+          <form class="modal__form" novalidate>
             <label for="input-image-link" class="modal__label"
               >Image link
               <input
-                type="text"
+                type="url"
                 class="modal__input"
                 id="input-image-link"
                 placeholder="Paste a link to the picture"
                 required
               />
+              <span class="modal__error" id="input-image-link-error"></span>
             </label>
             <label for="input-image-caption" class="modal__label"
               >Caption
@@ -141,8 +151,11 @@
                 class="modal__input"
                 id="input-image-caption"
                 placeholder="Type your caption"
+                minlength="2"
+                maxlength="30"
                 required
               />
+              <span class="modal__error" id="input-image-caption-error"></span>
             </label>
             <button
               aria-label="Save"
@@ -166,6 +179,7 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/validation.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>

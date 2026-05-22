@@ -29,12 +29,23 @@ const initialCards = [
   },
 ];
 
+const handleEscapeClose = (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+};
+
 const openModal = (modal) => {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeClose);
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeClose);
 };
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -107,6 +118,9 @@ function getCardElement(data) {
 profileEditBtn.addEventListener("click", function () {
   profileNameInput.value = profileNameElement.textContent;
   profileDescriptionInput.value = profileDescriptionElement.textContent;
+
+  resetValidation(profileFormElement, settings);
+
   openModal(profileModal);
 });
 
@@ -115,11 +129,12 @@ profileCloseBtn.addEventListener("click", function () {
 });
 
 postNewBtn.addEventListener("click", function () {
+  resetValidation(postFormElement, settings);
+
   openModal(postModal);
 });
 
 postCloseBtn.addEventListener("click", function () {
-  postFormElement.reset();
   closeModal(postModal);
 });
 
@@ -129,6 +144,7 @@ function handleProfileFormSubmit(evt) {
   profileNameElement.textContent = profileNameInput.value;
   profileDescriptionElement.textContent = profileDescriptionInput.value;
 
+  profileFormElement.reset();
   closeModal(profileModal);
 }
 
@@ -145,6 +161,7 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(postInputValues);
   cardsList.prepend(cardElement);
 
+  postFormElement.reset();
   closeModal(postModal);
 }
 
@@ -153,4 +170,17 @@ postFormElement.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
   cardsList.append(cardElement);
+});
+
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (
+      evt.target.classList.contains("modal_opened") ||
+      evt.target.classList.contains("modal")
+    ) {
+      closeModal(modal);
+    }
+  });
 });
