@@ -29,7 +29,7 @@ const initialCards = [
   },
 ];
 
-const handleEscapeClose = (evt) => {
+const closeOnEscape = (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_is-opened");
     if (openedModal) {
@@ -38,14 +38,20 @@ const handleEscapeClose = (evt) => {
   }
 };
 
+closeOnOverlay = (evt) => {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+};
+
 const openModal = (modal) => {
   modal.classList.add("modal_is-opened");
-  document.addEventListener("keydown", handleEscapeClose);
+  document.addEventListener("keydown", closeOnEscape);
 };
 
 const closeModal = (modal) => {
   modal.classList.remove("modal_is-opened");
-  document.removeEventListener("keydown", handleEscapeClose);
+  document.removeEventListener("keydown", closeOnEscape);
 };
 
 const profileEditBtn = document.querySelector(".profile__edit-button");
@@ -76,7 +82,6 @@ const previewTitleElement = previewModal.querySelector(".modal__preview-title");
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
-
 const cardsList = document.querySelector(".cards__list");
 
 previewCloseBtn.addEventListener("click", function () {
@@ -129,7 +134,18 @@ profileCloseBtn.addEventListener("click", function () {
 });
 
 postNewBtn.addEventListener("click", function () {
-  resetValidation(postFormElement, settings);
+  const inputList = Array.from(
+    postFormElement.querySelectorAll(settings.inputSelector),
+  );
+  const buttonElement = postFormElement.querySelector(
+    settings.submitButtonSelector,
+  );
+
+  inputList.forEach((inputElement) => {
+    hideInputError(postFormElement, inputElement, settings);
+  });
+
+  toggleButtonState(inputList, buttonElement, settings);
 
   openModal(postModal);
 });
@@ -175,12 +191,5 @@ initialCards.forEach(function (item) {
 const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
-  modal.addEventListener("mousedown", (evt) => {
-    if (
-      evt.target.classList.contains("modal_opened") ||
-      evt.target.classList.contains("modal")
-    ) {
-      closeModal(modal);
-    }
-  });
+  modal.addEventListener("mousedown", closeOnOverlay);
 });
