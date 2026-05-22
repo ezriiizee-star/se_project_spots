@@ -12,6 +12,7 @@ Spots is a photo-sharing website where users can:
 - **CSS**
 - **JavaScript**
 - **Responsive Design**
+- **Form Validation**
 
 This is my first project created without a .pdf brief.
 All of the coding was written from scratch using a Figma design.
@@ -39,3 +40,5 @@ As it does in Mobile view.
 ## Pitch Video
 
 Check out [this video](https://www.loom.com/share/752191f4f9d2420a8113f8ccd975fa3b) where I describe my project and some challenges I faced while building it.
+
+Check out [this video](https://www.loom.com/share/337b7fbbfe974a1883dfbe04fce2addc) where I talk about the validations added and how it improved user interactions.
